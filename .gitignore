@@ -1,3 +1,5 @@
 .idea/
 Serialization.iml
 out/
+binaryTest
+xmlTest.xml

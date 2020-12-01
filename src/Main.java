@@ -19,14 +19,25 @@ public class Main {
             nodes[i].children.add(nodes[(2 * i) + 2]);
         }
 
-        String type = "xml";
+        /*
+         * Zyklen führen zum Fehler bei xml serializierung,
+         * denn xml hat eine Baum Struktur die keine Zyklen erlaubt
+            Zyklen ===> nodes[3].children.add(nodes[0]);
+         *
+         * Binary hat dabei kein Prblem mit Zyklen
+        */
+
+        String type = "binary";
 
         switch (type) {
             case "xml":
                 serializeToXML(nodes);
+                break;
             case "binary":
                 serializeToBinary(nodes);
-
+                break;
+            default:
+                System.out.println("Passender Serializierungstyp nicht gefunden");
         }
 
     }
